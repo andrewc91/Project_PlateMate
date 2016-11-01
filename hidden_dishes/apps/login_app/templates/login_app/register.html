@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Register Here</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'login_app/css/normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'login_app/css/style_reg.css' %}" media='all'>
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="row">
+          <ul class="navbar">
+            <li><a href="/">Home</a></li>
+            <li><a href="{% url 'login:aboutme' %}">About</a></li>
+            <li><a href="{% url 'login:register' %}">Register</a></li>
+          </ul>
+        </div>
+      </nav>
+
+      <div class="register">
+        <h1>Register Here</h1>
+        <form class="" action="{% url 'login:process' %}" method="post">
+          {% csrf_token %}
+          <p>Name:</p> <input type="text" name="name" placeholder="Name">
+          <p>Email:</p> <input type="text" name="email" placeholder="Email">
+          <p>Password:</p> <input type="password" name="password" placeholder="Password">
+          <p>Confirm Password:</p> <input type="password" name="confirm" placeholder="Confirm Password"><br>
+          <input id="submit" type="submit" value="Register">
+        </form>
+      </div>
+
+      <div class="messages">
+        {% if messages %}
+          {% for message in messages %}
+            <li>{{message}}</li>
+          {% endfor %}
+        {% endif %}
+      </div>
+
+    </header>
+  </body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Login and Registration</title>
+    <meta charset="utf-8">
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'login_app/css/normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'login_app/css/style.css' %}" media='all'>
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="row">
+          {% load static %}
+          <img src="{% static "login_app/img/logo.jpg" %}" alt="PlateMate" class="logo"/>
+          <ul class="navbar">
+            <li><a href="/">Home</a></li>
+            <li><a href="{% url 'login:aboutme' %}">About</a></li>
+            <li><a href="{% url 'login:register' %}">Register</a></li>
+          </ul>
+        </div>
+      </nav>
+        <div class="main_stuff">
+          <h1>Welcome to PlateMate!</h1>
+          <h5>By Andrew Choe</h5><br>
+          <a class="button btn_1" href="{% url 'login:aboutme' %}">About me</a>
+          <a class="button btn_2" href="{% url 'login:register' %}">Register Here</a>
+        </div>
+
+        <div class="login">
+          <h1>Log in</h1><br>
+          <form class="" action="{% url 'login:login' %}" method="post">
+            {% csrf_token %}
+            <input type="text" name="email" placeholder="Email"><br>
+            <input type="password" name="password" placeholder="Password"><br>
+            <input id="submit" type="submit" value="Sign in">
+          </form>
+        </div>
+
+        <div id="message">
+          {% if messages %}
+            {% for message in messages %}
+              <li>{{message}}</li>
+            {% endfor %}
+          {% endif %}
+        </div>
+    </header>
+  </body>
+</html>

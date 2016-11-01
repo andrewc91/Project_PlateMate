@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>About Me</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'login_app/css/normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'login_app/css/style_about.css' %}" media='all'>
+        <link href="https://fonts.googleapis.com/css?family=Lato:300,400" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul class="navbar">
+          <li><a href="/">Home</a></li>
+          <li><a href="{% url 'login:aboutme' %}">About</a></li>
+          <li><a href="{% url 'login:register' %}">Register</a></li>
+        </ul>
+      </nav>
+
+      <h1>About PlateMate</h1>
+
+      <div class="content">
+        <h2>Welcome!</h2><br>
+        <p>"Don't know what to eat? Oh yeah me too? Let me look it up on Yelp real quick."</p><br>
+        <p>Apps such as Yelp, Zomato, Urban Spoon, and many others have a strong influence on what millions decide to eat. Mediocre reviews will deter people from eating at certain restaurants.</p><br>
+        <p>However, I've been to many restaurants that do not have the highest reviews, but they have some of my FAVORITE dishes!</p><br>
+        <p>I'm not a big fan of keeping "hidden gems" to myself. Therefore this app is to share these dishes for everyone to discover!</p><br>
+        <p>Not only will this reveal some good meals for food lovers, but it will also help attract potential customers for struggling businesses</p>
+      </div>
+
+      <div class="side_content">
+        <img src="{% static "login_app/img/me.jpg" %}" alt="Selfie" class="selfie"/>
+        <p>Andrew Choe</p>
+        <p>University of Washington - Seattle</p>
+        <p>Python, Javascript, and Ruby master</p>
+      </div>
+
+
+
+
+
+    </header>
+  </body>
+</html>

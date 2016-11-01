@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Dish App</title>
+    {% load staticfiles %}
+<link rel="stylesheet" href="{% static 'dish_app/css/style.css' %}" media='all'>
+<link rel="stylesheet" href="{% static 'dish_app/css/normalize.css' %}" media='all'>
+<link href="https://fonts.googleapis.com/css?family=Lato:300,400" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul class="navbar">
+          <li><a href="/">Home</a></li>
+          <li><a href="{% url 'login:aboutme' %}">About</a></li>
+          <li><a href="{% url 'login:register' %}">Register</a></li>
+          <li><a href="{% url 'dish:logout' %}">Logout</a></li>
+        </ul>
+      </nav>
+      <h1>Welcome {{user.name}}</h1>
+
+      <ul class="navoption">
+        <li><a href="#">Option 1</a></li>
+        <li><a href="#">Option 2</a></li>
+        <li><a href="#">Option 3</a></li>
+      </ul>
+
+      <div class="feature">
+        <h2>Featured Dish</h2>
+      </div>
+    </header>
+  </body>
+</html>
