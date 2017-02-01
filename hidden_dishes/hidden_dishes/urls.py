@@ -16,6 +16,12 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 
+from apps.login_app.models import Client
+
+class ClientAdmin(admin.ModelAdmin):
+    pass
+admin.site.register(Client, ClientAdmin)
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^', include('apps.login_app.urls', namespace='login')),
