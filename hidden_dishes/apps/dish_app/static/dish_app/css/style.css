@@ -63,6 +63,12 @@ header h1 {
   text-decoration: none;
   color: white;
   margin-left: 25px;
+  transition: background-color 0.5s, color 0.5s;
+}
+
+.navoption li a:hover,
+.navoption li a:active {
+  color: #2980b9;
 }
 
 .feature {

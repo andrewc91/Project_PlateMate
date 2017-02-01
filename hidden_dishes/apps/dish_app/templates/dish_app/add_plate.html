@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Dish App</title>
+    <title>Add a Plate</title>
     {% load staticfiles %}
     <link rel="stylesheet" href="{% static 'dish_app/css/style.css' %}" media='all'>
     <link rel="stylesheet" href="{% static 'dish_app/css/normalize.css' %}" media='all'>
@@ -18,17 +18,19 @@
           <li><a href="{% url 'dish:logout' %}">Logout</a></li>
         </ul>
       </nav>
-      <h1>Welcome {{user.name}}</h1>
 
+      <h1>Add a Plate</h1>
       <ul class="navoption">
         <li><a href="{% url 'dish:index' %}">Home</a></li>
         <li><a href="{% url 'dish:add' %}">Add Plate</a></li>
         <li><a href="#">Option 3</a></li>
       </ul>
 
-      <div class="feature">
-        <h2>Featured Dish</h2>
-      </div>
+
+
+
+
+
     </header>
   </body>
 </html>
