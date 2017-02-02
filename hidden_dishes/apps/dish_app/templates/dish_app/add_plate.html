@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>Add a Plate</title>
     {% load staticfiles %}
-    <link rel="stylesheet" href="{% static 'dish_app/css/style.css' %}" media='all'>
+    <link rel="stylesheet" href="{% static 'dish_app/css/style_add.css' %}" media='all'>
     <link rel="stylesheet" href="{% static 'dish_app/css/normalize.css' %}" media='all'>
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400" rel="stylesheet" type="text/css">
   </head>
@@ -26,8 +26,16 @@
         <li><a href="#">Option 3</a></li>
       </ul>
 
-
-
+      <div class="add_plate">
+        <form class="" action="#" method="post">
+          {% csrf_token %}
+          <p>Name:</p> <input type="text" name="name" placeholder="Name">
+          <p>Email:</p> <input type="text" name="email" placeholder="Email">
+          <p>Password:</p> <input type="password" name="password" placeholder="Password">
+          <p>Confirm Password:</p> <input type="password" name="confirm" placeholder="Confirm Password"><br>
+          <input id="submit" type="submit" value="Add Plate">
+        </form>
+      </div>
 
 
 
