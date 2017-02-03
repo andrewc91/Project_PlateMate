@@ -26,13 +26,15 @@
         <li><a href="#">Option 3</a></li>
       </ul>
 
+
       <div class="add_plate">
+        <h2>Please fill the fields</h2><br>
         <form class="" action="#" method="post">
           {% csrf_token %}
-          <p>Name:</p> <input type="text" name="name" placeholder="Name">
-          <p>Email:</p> <input type="text" name="email" placeholder="Email">
-          <p>Password:</p> <input type="password" name="password" placeholder="Password">
-          <p>Confirm Password:</p> <input type="password" name="confirm" placeholder="Confirm Password"><br>
+          <p>Name of Dish:</p> <input type="text" name="name" placeholder="">
+          <p>Restaurant:</p><input type="text" name="restaurant" placeholder="">
+          <p>Review:</p> <textarea rows="6" cols="39" name="review" placeholder=""></textarea>
+          <p>Select a File:</p><input id="fileUpload" type="file" name="image">
           <input id="submit" type="submit" value="Add Plate">
         </form>
       </div>

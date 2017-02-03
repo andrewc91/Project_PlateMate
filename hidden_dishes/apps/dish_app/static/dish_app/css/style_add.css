@@ -86,10 +86,10 @@ h2 {
 
 .add_plate {
   height: 550px;
-  width: 500px;
+  width: 600px;
   margin-left: 10%;
   padding: 30px;
-  border: 1px solid white;
+  /*border: 1px solid white;*/
 }
 
 input {
@@ -100,6 +100,7 @@ input {
   outline: none;
   padding: 7px 20px;
   border: 2px solid #1a5073;
+  width: 450px;
 }
 
 p {
@@ -114,6 +115,8 @@ p {
   border: 1px solid #2980b9;
   color: white;
   font-size: 18px;
+  width: 200px;
+  margin-left: 245px;
   transition: background-color 0.5s, border 0.5s, color 0.5s;
 }
 
@@ -121,4 +124,16 @@ p {
 #submit:visited {
   border: 1px solid white;
   background-color: #1a5073;
+}
+
+#fileUpload{
+  border: none;
+  width: 145px;
+}
+
+textarea {
+  border-radius: 30px;
+  border: 2px solid #1a5073;
+  padding: 7px 20px;
+  outline: none;
 }
