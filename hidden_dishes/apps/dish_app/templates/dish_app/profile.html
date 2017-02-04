@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>Add a Plate</title>
     {% load staticfiles %}
-    <link rel="stylesheet" href="{% static 'dish_app/css/style_add.css' %}" media='all'>
+    <link rel="stylesheet" href="{% static 'dish_app/css/style_profile.css' %}" media='all'>
     <link rel="stylesheet" href="{% static 'dish_app/css/normalize.css' %}" media='all'>
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400" rel="stylesheet" type="text/css">
   </head>
@@ -26,21 +26,11 @@
         <li><a href="{% url 'dish:profile' id=user.id %}">Your Profile</a></li>
       </ul>
 
-
-      <div class="add_plate">
-        <h2>Please fill the fields</h2><br>
-        <form class="" action="#" method="post">
-          {% csrf_token %}
-          <p>Name of Dish:</p> <input type="text" name="name" placeholder="">
-          <p>Restaurant:</p><input type="text" name="restaurant" placeholder="">
-          <p>Review:</p> <textarea rows="6" cols="39" name="review" placeholder=""></textarea>
-          <p>Select a File:</p><input id="fileUpload" type="file" name="image">
-          <input id="submit" type="submit" value="Add Plate">
-        </form>
+      <div>
+        <h2>This is your profile {{user.name}}</h2>
+        <h2>Email: {{user.email}}</h2>
+        <h2>Your Reviews:</h2>
       </div>
-
-
-
     </header>
   </body>
 </html>

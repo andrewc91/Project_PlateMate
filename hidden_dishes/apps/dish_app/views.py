@@ -10,7 +10,7 @@ def index(request):
 
     user = Client.objects.get(id=request.session['user_id'])
     context = {
-        'user': user
+        'user': user,
     }
     return render(request, 'dish_app/index.html', context)
 
@@ -24,4 +24,19 @@ def add(request):
     if not 'user_id' in request.session:
         return redirect(reverse('login:index'))
 
-    return render(request, 'dish_app/add_plate.html')
+    user = Client.objects.get(id=request.session['user_id'])
+    context = {
+        'user': user,
+    }
+
+    return render(request, 'dish_app/add_plate.html', context)
+
+def profile(request, id):
+    if not 'user_id' in request.session:
+        return redirect(reverse('login:index'))
+
+    user = Client.objects.get(id=request.session['user_id'])
+    context = {
+        'user': user,
+    }
+    return render(request, 'dish_app/profile.html', context)
