@@ -51,7 +51,7 @@ class Plate(models.Model):
     name = models.CharField(max_length=100)
     review = models.TextField(max_length=255)
     image = models.ImageField()
-    client = models.ForeignKey(Client)
+    user = models.ForeignKey(Client)
     restaurant = models.ForeignKey(Restaurant)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -62,14 +62,14 @@ class CommentManager(models.Manager):
 
 class Comment(models.Model):
     text = models.TextField(max_length=255)
-    client = models.ForeignKey(Client)
+    user = models.ForeignKey(Client)
     plate = models.ForeignKey(Plate)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     objects = CommentManager()
 
 class Like(models.Model):
-    client = models.ForeignKey(Client)
+    user = models.ForeignKey(Client)
     plate = models.ForeignKey(Plate)
     liked = models.BooleanField()
     created_at = models.DateTimeField(auto_now_add=True)
