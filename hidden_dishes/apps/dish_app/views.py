@@ -43,4 +43,5 @@ def profile(request, id):
 
 def add_dish(request):
     if request.method == 'POST':
+
         return redirect(reverse('dish:index'))

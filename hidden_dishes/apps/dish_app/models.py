@@ -5,7 +5,20 @@ from django.db import models
 # Create your models here.
 
 class RestaurantManager(models.Manager):
-    pass
+    def restaurant_validator(self, input):
+        errors = []
+
+        if len(input['restaurant']) == 0:
+            errors.append("Please enter in a restaurant")
+
+        if len(input['restaurant']) < 3:
+            errors.append("Restaurant name must be at least 3 characters")
+
+        if len(errors) == 0:
+            return (True, ["Success"])
+
+        else:
+            return (False, errors)
 
 class Restaurant(models.Model):
     name = models.CharField(max_length=100)
@@ -30,7 +43,6 @@ class PlateManager(models.Manager):
         #     errors.append("Please upload a picture of the dish")
 
         if len(errors) == 0:
-            Plate.objects.create(name=input['plate'], review=input['review'])
             return (True, ["Plate Added"])
         else:
             return (False, errors)
