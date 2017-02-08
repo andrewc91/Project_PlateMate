@@ -14,7 +14,26 @@ class Restaurant(models.Model):
     objects = RestaurantManager()
 
 class PlateManager(models.Manager):
-    pass
+    def plate_validator(self, input):
+        errors = []
+
+        if len(input['plate']) == 0:
+            errors.append("Please enter in a plate")
+
+        if len(input['plate']) < 3:
+            errors.append("Dish name must be at least 3 characters")
+
+        if len(input['review']) == 0:
+            errors.append("Please enter in a review")
+
+        # if len(input['file']) == 0:
+        #     errors.append("Please upload a picture of the dish")
+
+        if len(errors) == 0:
+            Plate.objects.create(name=input['plate'], review=input['review'])
+            return (True, ["Plate Added"])
+        else:
+            return (False, errors)
 
 class Plate(models.Model):
     name = models.CharField(max_length=100)

@@ -40,3 +40,7 @@ def profile(request, id):
         'user': user,
     }
     return render(request, 'dish_app/profile.html', context)
+
+def add_dish(request):
+    if request.method == 'POST':
+        return redirect(reverse('dish:index'))
