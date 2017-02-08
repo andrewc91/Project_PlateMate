@@ -17,10 +17,27 @@ from django.conf.urls import url, include
 from django.contrib import admin
 
 from apps.login_app.models import Client
+from apps.dish_app.models import Plate, Restaurant, Comment, Like
 
 class ClientAdmin(admin.ModelAdmin):
     pass
 admin.site.register(Client, ClientAdmin)
+
+class PlateAdmin(admin.ModelAdmin):
+    pass
+admin.site.register(Plate, PlateAdmin)
+
+class RestaurantAdmin(admin.ModelAdmin):
+    pass
+admin.site.register(Restaurant, RestaurantAdmin)
+
+class LikeAdmin(admin.ModelAdmin):
+    pass
+admin.site.register(Like, LikeAdmin)
+
+class CommentAdmin(admin.ModelAdmin):
+    pass
+admin.site.register(Comment, CommentAdmin)
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
