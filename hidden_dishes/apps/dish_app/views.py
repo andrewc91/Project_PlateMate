@@ -12,6 +12,8 @@ def index(request):
     user = Client.objects.get(id=request.session['user_id'])
     context = {
         'user': user,
+        'plates': Plate.objects.all(),
+        'restaurants': Plate.objects.all(),
     }
     return render(request, 'dish_app/index.html', context)
 

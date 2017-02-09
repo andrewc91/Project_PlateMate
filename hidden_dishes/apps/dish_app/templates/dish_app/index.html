@@ -32,6 +32,11 @@
 
       <div class="main">
         <h2>Most Recent</h2>
+
+        {% for plate in plates %}
+          <h4>{{plate.name}}</h4>
+        {% endfor %}
+
       </div>
     </header>
   </body>
