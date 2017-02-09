@@ -58,5 +58,9 @@ def add_dish(request):
 
             context = {
                 'user': Client.objects.get(id=request.session['user_id']),
+                'restaurant': restaurant,
+                'name': request.POST['plate'],
+                'review': request.POST['review'],
             }
+            Plate.objects.create(**context)
             return redirect(reverse('dish:index'))
