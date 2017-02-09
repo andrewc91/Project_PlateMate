@@ -26,6 +26,7 @@
         <li><a href="{% url 'dish:profile' id=user.id %}">Your Profile</a></li>
       </ul>
 
+      <div class="messages">
       {% if messages %}
         {% for message in messages %}
           {% if "plate" in message.tags %}
@@ -41,6 +42,7 @@
           {% endif %}
         {% endfor %}
       {% endif %}
+    </div>
 
       <div class="add_plate">
         <h2>Please fill the fields</h2><br>

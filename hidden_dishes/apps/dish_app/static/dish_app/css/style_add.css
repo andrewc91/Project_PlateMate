@@ -128,3 +128,14 @@ textarea {
   padding: 7px 20px;
   outline: none;
 }
+
+.messages {
+  float: right;
+  margin-right: 200px;
+  margin-top: 100px;
+  width: 350px;
+  height: auto;
+  list-style-type: circle;
+  color: white;
+  font-size: 15px;
+}
