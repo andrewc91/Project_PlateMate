@@ -34,7 +34,7 @@
         <h2>Most Recent</h2>
 
         {% for plate in plates %}
-          <h4>{{plate.name}}</h4>
+          <h4>{{plate.name}} by {{plate.user.name}} on {{plate.created_at}}</h4>
         {% endfor %}
 
       </div>
