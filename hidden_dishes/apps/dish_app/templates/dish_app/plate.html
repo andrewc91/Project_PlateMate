@@ -19,14 +19,16 @@
         </ul>
       </nav>
 
-      <h1>Plate Page</h1>
+      <h1>{{plate.name}}</h1>
       <ul class="navoption">
         <li><a href="{% url 'dish:index' %}">Home</a></li>
         <li><a href="{% url 'dish:add' %}">Add Plate</a></li>
         <li><a href="{% url 'dish:profile' id=user.id %}">Your Profile</a></li>
       </ul>
 
-
+      <div class="plate">
+        <h2>WOOO PIC</h2>
+      </div>
     </header>
   </body>
 </html>

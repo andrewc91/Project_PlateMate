@@ -17,7 +17,7 @@ header {
   background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../img/add.jpg');
   background-size: cover;
   background-position: center;
-  height: auto;
+  height: 100vh;
 }
 
 .navbar {
@@ -76,11 +76,20 @@ h2 {
 }
 
 .add_plate {
-  height: 600px;
-  width: 600px;
-  margin-left: 10%;
+  height: 300px;
+  width: 520px;
+  margin-left: 6%;
   padding: 30px;
-  margin-top: -25px;
+  margin-top: 30px;
+  /*border: 1px solid white;*/
+}
+
+.add_plate2 {
+  height: 300px;
+  width: 520px;
+  margin-left: 500px;
+  margin-top: -280px;
+  padding: 30px;
   /*border: 1px solid white;*/
 }
 
@@ -109,6 +118,7 @@ p {
   font-size: 18px;
   width: 200px;
   margin-left: 245px;
+  margin-top: 10px;
   transition: background-color 0.5s, border 0.5s, color 0.5s;
 }
 
@@ -130,12 +140,13 @@ textarea {
 }
 
 .messages {
-  float: right;
-  margin-right: 200px;
-  margin-top: 100px;
+  position: absolute;
+  margin-left: 640px;
+  margin-top: -5px;
   width: 350px;
   height: auto;
   list-style-type: circle;
   color: white;
   font-size: 15px;
+  /*border: 1px solid white;*/
 }
