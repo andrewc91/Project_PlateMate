@@ -83,9 +83,9 @@ header h1 {
 .main {
   overflow-y: auto;
   height: 350px;
-  width: 700px;
+  width: 750px;
   border: 1px solid white;
-  margin-left: 500px;
+  margin-left: 450px;
   margin-top: -350px;
   padding: 25px;
   word-wrap: break-word;
@@ -93,8 +93,12 @@ header h1 {
 
 h2 {
   color: white;
+  margin-bottom: 15px;
+  border-bottom: 1px solid white;
 }
 
 h4 {
   color: white;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
 }

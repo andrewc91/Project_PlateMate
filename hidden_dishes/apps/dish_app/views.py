@@ -12,8 +12,7 @@ def index(request):
     user = Client.objects.get(id=request.session['user_id'])
     context = {
         'user': user,
-        'plates': Plate.objects.all(),
-        'restaurants': Plate.objects.all(),
+        'plates': Plate.objects.all().order_by('-created_at'),
     }
     return render(request, 'dish_app/index.html', context)
 
@@ -41,7 +40,7 @@ def profile(request, id):
     user = Client.objects.get(id=request.session['user_id'])
     context = {
         'user': user,
-        'plates': Plate.objects.filter(user_id=id),
+        'plates': Plate.objects.filter(user_id=id).order_by('-created_at'),
     }
     return render(request, 'dish_app/profile.html', context)
 
