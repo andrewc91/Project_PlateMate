@@ -41,6 +41,7 @@ def profile(request, id):
     user = Client.objects.get(id=request.session['user_id'])
     context = {
         'user': user,
+        'plates': Plate.objects.filter(user_id=id),
     }
     return render(request, 'dish_app/profile.html', context)
 

@@ -19,17 +19,25 @@
         </ul>
       </nav>
 
-      <h1>Add a Plate</h1>
+      <h1>User Profile</h1>
       <ul class="navoption">
         <li><a href="{% url 'dish:index' %}">Home</a></li>
         <li><a href="{% url 'dish:add' %}">Add Plate</a></li>
         <li><a href="{% url 'dish:profile' id=user.id %}">Your Profile</a></li>
       </ul>
 
-      <div>
-        <h2>This is your profile {{user.name}}</h2>
-        <h2>Email: {{user.email}}</h2>
-        <h2>Your Reviews:</h2>
+      <div class="profile">
+        <h2>Info</h2>
+        <h3>Name: {{user.name}}</h3>
+        <h3>Email: {{user.email}}</h3>
+        <h3>Member Since: {{user.created_at}}</h3>
+      </div>
+
+      <div class="reviews">
+        <h2>Plates</h2>
+        {% for plate in plates %}
+          <li>{{plate.name}}</li>
+        {% endfor %}
       </div>
     </header>
   </body>
