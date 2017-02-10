@@ -66,3 +66,9 @@ def add_dish(request):
             }
             Plate.objects.create(**context)
             return redirect(reverse('dish:index'))
+
+def show_plate(request, id):
+    if not 'user_id' in request.session:
+        return redirect(reverse('login:index'))
+
+    return render(request, 'dish_app/plate.html')

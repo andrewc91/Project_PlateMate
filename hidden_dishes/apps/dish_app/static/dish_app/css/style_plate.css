@@ -76,31 +76,3 @@ h2 {
   border-bottom: 1px solid white;
   margin-bottom: 20px;
 }
-
-h3 {
-  color: white;
-  margin-bottom: 20px;
-}
-
-.profile {
-  /*border: 1px solid white;*/
-  width: 500px;
-  height: auto;
-  padding: 30px;
-  margin-left: 6%;
-}
-
-.reviews {
-  /*border: 1px solid white;*/
-  width: 500px;
-  height: auto;
-  margin-left: 50%;
-  margin-top: -20%;
-  padding: 30px;
-}
-
-li {
-  color: white;
-  list-style-type: circle;
-  margin-top: 10px;
-}

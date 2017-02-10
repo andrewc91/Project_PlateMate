@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Dish App</title>
+    <title>Plate</title>
     {% load staticfiles %}
-    <link rel="stylesheet" href="{% static 'dish_app/css/style.css' %}" media='all'>
+    <link rel="stylesheet" href="{% static 'dish_app/css/style_plate.css' %}" media='all'>
     <link rel="stylesheet" href="{% static 'dish_app/css/normalize.css' %}" media='all'>
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400" rel="stylesheet" type="text/css">
   </head>
@@ -18,26 +18,15 @@
           <li><a href="{% url 'dish:logout' %}">Logout</a></li>
         </ul>
       </nav>
-      <h1>Welcome {{user.name}}</h1>
 
+      <h1>Plate Page</h1>
       <ul class="navoption">
         <li><a href="{% url 'dish:index' %}">Home</a></li>
         <li><a href="{% url 'dish:add' %}">Add Plate</a></li>
         <li><a href="{% url 'dish:profile' id=user.id %}">Your Profile</a></li>
       </ul>
 
-      <div class="feature">
-        <h2>Featured Dish</h2>
-      </div>
 
-      <div class="main">
-        <h2>Most Recent</h2>
-
-        {% for plate in plates %}
-          <h4><a href="{% url 'dish:show_plate' id=plate.id %}">{{plate.name}}</a> <i style="font-size: 15px">from</i> {{plate.restaurant.name}} <i style="font-size: 15px">posted by</i> {{plate.user.name}}</h4>
-        {% endfor %}
-
-      </div>
     </header>
   </body>
 </html>
