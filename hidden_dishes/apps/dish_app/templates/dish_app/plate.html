@@ -29,6 +29,21 @@
 
       <div class="plate">
         <h2>WOOO PIC</h2>
+        <h3>Posted By:</h3>
+        <h3>Review:</h3>
+      </div>
+
+      <div class="comments">
+        <h2>Post a Comment</h2>
+        <form class="" action="#" method="post">
+          {% csrf_token %}
+          <div class="wrapper">
+              <textarea name="comments" rows="3"></textarea>
+              <div class="controls">
+                  <button>Post Comment</button>
+              </div>
+          </div>
+        </form>
       </div>
     </header>
   </body>

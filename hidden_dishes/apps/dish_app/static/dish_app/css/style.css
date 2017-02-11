@@ -81,7 +81,7 @@ header h1 {
 }
 
 .main {
-  overflow-y: auto;
+  overflow: auto;
   height: 350px;
   width: 750px;
   border: 1px solid white;

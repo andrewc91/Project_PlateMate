@@ -91,4 +91,8 @@ def restaurant(request, id):
 def top(request):
     if not 'user_id' in request.session:
         return redirect(reverse('login:index'))
-    return render(request, 'dish_app/top.html')
+
+    context = {
+        'user': Client.objects.get(id=request.session['user_id']),
+    }
+    return render(request, 'dish_app/top.html', context)
