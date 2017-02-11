@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>Dish App</title>
     {% load staticfiles %}
-    <link rel="stylesheet" href="{% static 'dish_app/css/style.css' %}" media='all'>
+    <link rel="stylesheet" href="{% static 'dish_app/css/style_restaurant.css' %}" media='all'>
     <link rel="stylesheet" href="{% static 'dish_app/css/normalize.css' %}" media='all'>
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400" rel="stylesheet" type="text/css">
   </head>
@@ -18,7 +18,7 @@
           <li><a href="{% url 'dish:logout' %}">Logout</a></li>
         </ul>
       </nav>
-      <h1>Welcome {{user.name}}</h1>
+      <h1>Restaurant: {{restaurant.name}}</h1>
 
       <ul class="navoption">
         <li><a href="{% url 'dish:index' %}">Home</a></li>
@@ -26,19 +26,6 @@
         <li><a href="{% url 'dish:profile' id=user.id %}">Your Profile</a></li>
         <li><a href="{% url 'dish:top' %}">Top Plates</a></li>
       </ul>
-
-      <div class="feature">
-        <h2>Featured Dish</h2>
-      </div>
-
-      <div class="main">
-        <h2>Most Recent</h2>
-
-        {% for plate in plates %}
-          <h4><a href="{% url 'dish:show_plate' id=plate.id %}">{{plate.name}}</a> <i style="font-size: 15px">from</i> <a href="{% url 'dish:restaurant' id=plate.restaurant.id %}">{{plate.restaurant.name}}</a> <i style="font-size: 15px">posted by</i> <a href="{% url 'dish:profile' id=plate.user.id %}">{{plate.user.name}}</a></h4>
-        {% endfor %}
-
-      </div>
     </header>
   </body>
 </html>

@@ -14,7 +14,7 @@ html {
 }
 
 header {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../img/clean.jpg');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../img/profile.jpg');
   background-size: cover;
   background-position: center;
   height: 100vh;
@@ -71,38 +71,7 @@ header h1 {
   color: #2980b9;
 }
 
-.feature {
-  font-size: 20px;
-  width: 350px;
-  height: 350px;
-  border: 1px solid white;
-  margin-left: 80px;
-  padding: 25px;
-}
-
-.main {
-  overflow-y: auto;
-  height: 350px;
-  width: 750px;
-  border: 1px solid white;
-  margin-left: 450px;
-  margin-top: -350px;
-  padding: 25px;
-  word-wrap: break-word;
-}
-
 h2 {
   color: white;
-  margin-bottom: 15px;
-  border-bottom: 1px solid white;
-}
-
-h4 {
-  color: white;
-  letter-spacing: 1px;
   margin-bottom: 20px;
-}
-
-a {
-  color: limegreen;
 }

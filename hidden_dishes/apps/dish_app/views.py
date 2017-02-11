@@ -77,3 +77,18 @@ def show_plate(request, id):
 
     }
     return render(request, 'dish_app/plate.html', context)
+
+def restaurant(request, id):
+    if not 'user_id' in request.session:
+        return redirect(reverse('login:index'))
+
+    context = {
+        'user': Client.objects.get(id=request.session['user_id']),
+        'restaurant': Restaurant.objects.get(id=id),
+    }
+    return render(request, 'dish_app/restaurant.html', context)
+
+def top(request):
+    if not 'user_id' in request.session:
+        return redirect(reverse('login:index'))
+    return render(request, 'dish_app/top.html')

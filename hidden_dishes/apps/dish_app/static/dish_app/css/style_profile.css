@@ -104,3 +104,7 @@ li {
   list-style-type: circle;
   margin-top: 10px;
 }
+
+a {
+  color: limegreen;
+}
