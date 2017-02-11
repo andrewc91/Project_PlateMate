@@ -36,7 +36,7 @@
       <div class="reviews">
         <h2>Plates Submitted</h2>
         {% for plate in plates %}
-          <li>{{plate.name}}</li>
+          <li><a href="{% url 'dish:show_plate' id=plate.id %}">{{plate.name}}</a></li>
         {% endfor %}
       </div>
     </header>

@@ -37,7 +37,7 @@ def profile(request, id):
     if not 'user_id' in request.session:
         return redirect(reverse('login:index'))
 
-    user = Client.objects.get(id=request.session['user_id'])
+    user = Client.objects.get(id=id)
     context = {
         'user': user,
         'plates': Plate.objects.filter(user_id=id).order_by('-created_at'),
