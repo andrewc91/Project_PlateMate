@@ -96,12 +96,17 @@ h2 {
 .wrapper{
     background: #eee;
     width: 500px;
+    margin-bottom: 10px;
+    border-radius: 20px;
 }
+
 .wrapper textarea{
-    padding: 5px;
+    padding: 10px;
     border:none;
     width:100%;
     resize: none;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 .wrapper textarea:focus{
     outline: none;
@@ -112,11 +117,11 @@ h2 {
 }
 button{
     padding: 10px 25px;
-    font-weight: bold;
     color: white;
     background-color: #2980b9;
-    border: 1px solid #eee;
+    border: 1px solid white;
     transition: background-color 0.5s, border 0.5s, color 0.5s;
+    border-bottom-right-radius: 20px;
 }
 
 button:hover,
