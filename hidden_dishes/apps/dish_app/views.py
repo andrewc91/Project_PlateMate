@@ -96,3 +96,15 @@ def top(request):
         'user': Client.objects.get(id=request.session['user_id']),
     }
     return render(request, 'dish_app/top.html', context)
+
+def add_comment(request, id):
+    if request.method == "POST":
+        result = Comment.objects.comment_validator(request.POST, request.session['user_id'], id)
+
+        if result[0] == True:
+            messages.success(request, "Successfully added comment")
+            return redirect(reverse('dish:show_plate', kwargs={'id': id}))
+        else:
+            for errors in result[1]:
+                messages.error(request, errors, extra_tags="comments")
+                return redirect(reverse('dish:show_plate', kwargs={'id': id}))

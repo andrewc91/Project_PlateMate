@@ -58,7 +58,22 @@ class Plate(models.Model):
     objects = PlateManager()
 
 class CommentManager(models.Manager):
-    pass
+    def comment_validator(self, input, user, id):
+        errors = []
+
+        if len(input['comment']) == 0:
+            errors.append("Please enter in a comment")
+
+        if len(input['comment']) < 2:
+            errors.append("Comment must be at least 2 characters")
+
+        if len(errors) == 0:
+            user = Client.objects.get(id=user)
+            plate = Plate.objects.get(id=id)
+            comment = Comment.objects.create(text=input['comment'], user=user, plate=plate)
+            return (True, comment, id)
+        else:
+            return (False, errors)
 
 class Comment(models.Model):
     text = models.TextField(max_length=255)

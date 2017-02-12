@@ -10,4 +10,5 @@ urlpatterns = [
     url(r'^plate/(?P<id>\d+)$', views.show_plate, name="show_plate"),
     url(r'^restaurant/(?P<id>\d+)$', views.restaurant, name="restaurant"),
     url(r'^top$', views.top, name="top"),
+    url(r'^add_comment/(?P<id>\d+)$', views.add_comment, name="add_comment"),
 ]
