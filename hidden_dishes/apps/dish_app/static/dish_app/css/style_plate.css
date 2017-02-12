@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 
-html {
+html, body {
   background-color: #fff;
   color: #555;
   font-family: 'Lato', 'Arial';
@@ -34,6 +34,8 @@ header {
   text-decoration: none;
   color: white;
   transition: background-color 0.5s, color 0.5s;
+  font-family: 'Lato';
+  font-weight: 300;
 }
 
 .navbar a:hover,
@@ -47,6 +49,7 @@ header h1 {
   margin-left: 80px;
   border-bottom: 1px solid white;
   margin-right: 80px;
+  margin-top: -10px;
 }
 
 .navoption {
@@ -80,7 +83,7 @@ h2 {
   width: 400px;
   height: 380px;
   border: 1px solid white;
-  margin-left: 6%;
+  margin-left: 80px;
   padding: 30px;
 }
 
@@ -93,35 +96,13 @@ h2 {
   margin-top: -380px;
 }
 
-.wrapper{
-    background: #eee;
-    width: 500px;
-    margin-bottom: 10px;
-    border-radius: 20px;
-}
-
-.wrapper textarea{
-    padding: 10px;
-    border:none;
-    width:100%;
-    resize: none;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-}
-.wrapper textarea:focus{
-    outline: none;
-}
-.controls{
-    text-align: right;
-    margin-top: -6px;
-}
 button{
     padding: 10px 25px;
     color: white;
     background-color: #2980b9;
     border: 1px solid white;
     transition: background-color 0.5s, border 0.5s, color 0.5s;
-    border-bottom-right-radius: 20px;
+    outline: none;
 }
 
 button:hover,
