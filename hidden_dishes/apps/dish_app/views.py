@@ -71,9 +71,12 @@ def show_plate(request, id):
     if not 'user_id' in request.session:
         return redirect(reverse('login:index'))
 
+    plate = Plate.objects.get(id=id)
+    comments = Comment.objects.filter(plate=plate)
     context = {
         'user': Client.objects.get(id=request.session['user_id']),
-        'plate': Plate.objects.get(id=id),
+        'plate': plate,
+        'comments': comments,
 
     }
     return render(request, 'dish_app/plate.html', context)

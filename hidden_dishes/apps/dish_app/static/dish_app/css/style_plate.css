@@ -96,6 +96,7 @@ h2 {
   padding: 30px;
   margin-left: 500px;
   margin-top: -380px;
+  overflow: auto;
 }
 
 button{
@@ -111,4 +112,8 @@ button:hover,
 button:visited {
   border: 1px solid white;
   background-color: #1a5073;
+}
+
+p {
+  color: white;
 }

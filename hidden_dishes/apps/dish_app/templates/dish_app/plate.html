@@ -61,6 +61,12 @@
                 </div>
             </div>
         </div>
+
+        <h2>Comments:</h2>
+        {% for comment in comments %}
+          <p>"{{comment.text}}"</p>
+          <p style="text-indent:1em">- <i>Posted By :</i> {{comment.user.name}}</p><br>
+        {% endfor %}
       </div>
     </header>
   </body>
