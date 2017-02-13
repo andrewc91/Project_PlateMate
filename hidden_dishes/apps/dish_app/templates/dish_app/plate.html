@@ -34,11 +34,14 @@
 
       <div class="plate">
         <h2>WOOO PIC</h2>
-        <h3>Posted By:</h3>
-        <h3>Review:</h3>
+        <p><span style="font-weight: bold">Posted By: </span>{{plate.user.name}}</p>
+        <p><span style="font-weight: bold">Review: </span>"{{plate.review}}"</p>
       </div>
 
       <div class="comments">
+        {% if plate.user.id == request.session.user_id %}
+          <a style="float: right; margin-left: 10px; outline: none; text-decoration: none" class="btn btn-danger btn-lg" href="{% url 'dish:delete' id=plate.id %}">Delete Your Plate</a>
+        {% endif %}
         <button style="float: right; outline: none" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModalNorm">
             Post a Comment
         </button>

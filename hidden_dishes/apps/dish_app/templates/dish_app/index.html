@@ -39,7 +39,6 @@
         {% for plate in plates %}
           <h4><a href="{% url 'dish:show_plate' id=plate.id %}">{{plate.name}}</a> <i style="font-size: 15px">from</i> <a href="{% url 'dish:restaurant' id=plate.restaurant.id %}">{{plate.restaurant.name}}</a> <i style="font-size: 15px">posted by</i> <a href="{% url 'dish:profile' id=plate.user.id %}">{{plate.user.name}}</a></h4>
         {% endfor %}
-
       </div>
     </header>
   </body>

@@ -11,4 +11,5 @@ urlpatterns = [
     url(r'^restaurant/(?P<id>\d+)$', views.restaurant, name="restaurant"),
     url(r'^top$', views.top, name="top"),
     url(r'^add_comment/(?P<id>\d+)$', views.add_comment, name="add_comment"),
+    url(r'^delete/(?P<id>\d+)$', views.delete, name="delete"),
 ]
