@@ -114,3 +114,8 @@ def add_comment(request, id):
 def delete(request, id):
     Plate.objects.get(id=id).delete()
     return redirect(reverse('dish:index'))
+
+def delete_comment(request, id):
+    comment = Comment.objects.get(id=id)
+    comment.delete()
+    return redirect(reverse('dish:show_plate', kwargs={'id':comment.plate.id}))

@@ -68,7 +68,12 @@
         <h2>Comments:</h2>
         {% for comment in comments %}
           <p>"{{comment.text}}"</p>
-          <p style="text-indent:1em">- <i>Posted By :</i> {{comment.user.name}} <i>on</i>&nbsp;&nbsp;{{comment.created_at}}</p><br>
+          <p style="text-indent:1em">- <i>Posted By :</i> {{comment.user.name}} <i>on</i>&nbsp;&nbsp;{{comment.created_at}}
+            {% if user == comment.user %}
+              <a style="text-indent:0; text-decoration: none; padding: 1px; margin-left: 10px; margin-top: -10px" class="btn btn-danger btn-sm" href="{% url 'dish:delete_comment' id=comment.id %}">Delete Comment</a>
+            {% endif %}
+          </p>
+          <br>
         {% endfor %}
       </div>
     </header>
