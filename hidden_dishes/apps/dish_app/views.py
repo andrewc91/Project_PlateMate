@@ -47,6 +47,7 @@ def profile(request, id):
     return render(request, 'dish_app/profile.html', context)
 
 def add_dish(request):
+    print (request.method)
     if request.method == 'POST':
         result_plate = Plate.objects.plate_validator(request.POST)
         result_restaurant = Restaurant.objects.restaurant_validator(request.POST)
@@ -65,6 +66,7 @@ def add_dish(request):
                 'restaurant': restaurant,
                 'name': request.POST['plate'],
                 'review': request.POST['review'],
+                'image': request.FILES['picture'],
             }
             Plate.objects.create(**context)
             return redirect(reverse('dish:index'))

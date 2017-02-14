@@ -34,12 +34,17 @@
 
       <div class="plate">
         <h2>{{plate.likes.count}} Likes
-        {% if user in plate.likes.all %}
-        <span class="btn btn-warning btn disabled" role="button" style="float: right">Liked</span>
-        {% else %}
-        <a class="btn btn-warning" style="float:right; text-decoration: none" href="{% url 'dish:like' id=plate.id %}">Like</a></h2>
+          {% if user in plate.likes.all %}
+          <span class="btn btn-warning btn disabled" role="button" style="float: right; margin-bottom: 10px">Liked</span>
+          {% else %}
+          <a class="btn btn-warning" style="float:right; text-decoration: none" href="{% url 'dish:like' id=plate.id %}">Like</a>
+        </h2>
         {% endif %}
-        <h2>(PIC HERE)</h2>
+
+        {% if plate.image %}
+        <img src="{{plate.image.url}}" height="300" width="325"></img>
+        {% endif %}
+
         <p><span style="font-weight: bold">Posted By: </span>{{plate.user.name}}</p>
         <p><span style="font-weight: bold">Review: </span>"{{plate.review}}"</p>
       </div>
