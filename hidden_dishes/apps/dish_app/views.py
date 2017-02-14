@@ -89,6 +89,7 @@ def top(request):
 
     context = {
         'user': Client.objects.get(id=request.session['user_id']),
+        'plates': Plate.objects.annotate(total_like=Count('likes')).order_by('-total_like')
     }
     return render(request, 'dish_app/top.html', context)
 

@@ -26,6 +26,15 @@
         <li><a href="{% url 'dish:profile' id=user.id %}">Your Profile</a></li>
         <li><a href="{% url 'dish:top' %}">Top Plates</a></li>
       </ul>
+
+      <div class="top">
+        <h2>TOP PLATES</h2>
+        {% for plate in plates %}
+          <li>{{plate.name}} <span style="float:right">{{plate.total_like}} Likes</span></li>
+        {% endfor %}
+      </div>
+
+
     </header>
   </body>
 </html>
