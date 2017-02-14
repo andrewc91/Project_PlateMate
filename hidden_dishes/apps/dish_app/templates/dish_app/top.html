@@ -18,7 +18,7 @@
           <li><a href="{% url 'dish:logout' %}">Logout</a></li>
         </ul>
       </nav>
-      <h1>TOP PAGE</h1>
+      <h1>TOP Plates</h1>
 
       <ul class="navoption">
         <li><a href="{% url 'dish:index' %}">Home</a></li>
@@ -28,12 +28,11 @@
       </ul>
 
       <div class="top">
-        <h2>TOP PLATES</h2>
+        <h2 style="font-size: 40px; border-bottom: 1px solid white">TOP PLATES</h2>
         {% for plate in plates %}
           <li>{{plate.name}} <span style="float:right">{{plate.total_like}} Likes</span></li>
         {% endfor %}
       </div>
-
 
     </header>
   </body>

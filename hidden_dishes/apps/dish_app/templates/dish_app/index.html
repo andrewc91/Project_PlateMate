@@ -29,12 +29,16 @@
       </ul>
 
       <div class="feature">
-        <h2>Featured Dish</h2>
-        <h3>Holla Soup</h3>
+        <h2 style="margin-bottom: 15px; border-bottom: 1px solid white; text-align: center">Featured Dish</h2>
+        <h2 style="text-align: center">{{random.name}}</h2>
+        <h2 style="text-align: center; margin-bottom: 10px">(PIC HERE)</h2>
+        <h5>Posted By: {{random.user.name}}</h5>
+        <h5>From: {{random.restaurant.name}}</h5>
+        <h5>Review: {{random.review}}</h5>
       </div>
 
       <div class="main">
-        <h2>Most Recent</h2>
+        <h2 style="margin-bottom: 20px">Most Recent</h2>
 
         {% for plate in plates %}
           <h4><a href="{% url 'dish:show_plate' id=plate.id %}">{{plate.name}}</a> <i style="font-size: 15px">from</i> {{plate.restaurant.name}} <i style="font-size: 15px">posted by</i> <a href="{% url 'dish:profile' id=plate.user.id %}">{{plate.user.name}}</a></h4>

@@ -52,12 +52,12 @@ class PlateManager(models.Manager):
         user = Client.objects.get(id=user_id)
         plate.likes.add(user)
         plate.save()
-        return (True, ["Liked Comment"])
+        return True
 
 class Plate(models.Model):
     name = models.CharField(max_length=100)
     review = models.TextField(max_length=255)
-    image = models.ImageField()
+    image = models.ImageField(null=True, blank=True)
     user = models.ForeignKey(Client)
     restaurant = models.ForeignKey(Restaurant)
     likes = models.ManyToManyField(Client, related_name="plates")

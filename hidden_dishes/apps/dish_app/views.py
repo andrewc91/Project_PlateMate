@@ -14,6 +14,7 @@ def index(request):
     context = {
         'user': user,
         'plates': Plate.objects.all().order_by('-created_at'),
+        'random': Plate.objects.all().order_by('?')[0],
     }
     return render(request, 'dish_app/index.html', context)
 

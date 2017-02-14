@@ -78,6 +78,7 @@ header h1 {
   border: 1px solid white;
   margin-left: 80px;
   padding: 25px;
+  overflow: auto;
 }
 
 .main {
@@ -93,14 +94,17 @@ header h1 {
 
 h2 {
   color: white;
-  margin-bottom: 15px;
-  border-bottom: 1px solid white;
 }
 
 h4 {
   color: white;
   letter-spacing: 1px;
   margin-bottom: 20px;
+}
+
+h5 {
+  color: white;
+  margin-bottom: 5px;
 }
 
 a {

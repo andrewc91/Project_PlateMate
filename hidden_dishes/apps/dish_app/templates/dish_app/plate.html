@@ -33,7 +33,12 @@
       </ul>
 
       <div class="plate">
-        <h2>{{plate.likes.count}} Likes <a class="btn btn-warning" style="float:right; text-decoration: none" href="{% url 'dish:like' id=plate.id %}">Like</a></h2>
+        <h2>{{plate.likes.count}} Likes
+        {% if user in plate.likes.all %}
+        <span class="btn btn-warning btn disabled" role="button" style="float: right">Liked</span>
+        {% else %}
+        <a class="btn btn-warning" style="float:right; text-decoration: none" href="{% url 'dish:like' id=plate.id %}">Like</a></h2>
+        {% endif %}
         <h2>(PIC HERE)</h2>
         <p><span style="font-weight: bold">Posted By: </span>{{plate.user.name}}</p>
         <p><span style="font-weight: bold">Review: </span>"{{plate.review}}"</p>
@@ -71,7 +76,7 @@
           <p>"{{comment.text}}"</p>
           <p style="text-indent:1em">- <i>Posted By :</i> {{comment.user.name}} <i>on</i>&nbsp;&nbsp;{{comment.created_at}}
             {% if user == comment.user %}
-              <a style="text-indent:0; text-decoration: none; padding: 1px; margin-left: 10px; margin-top: -10px" class="btn btn-danger btn-sm" href="{% url 'dish:delete_comment' id=comment.id %}">Delete Comment</a>
+              <a style="text-indent:0; text-decoration: none; padding: 1px; margin-left: 10px; margin-top: -10px" class="btn btn-danger btn-sm" href="{% url 'dish:delete_comment' id=comment.id %}">Delete</a>
             {% endif %}
           </p>
           <br>
