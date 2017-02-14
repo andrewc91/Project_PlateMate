@@ -17,7 +17,7 @@ from django.conf.urls import url, include
 from django.contrib import admin
 
 from apps.login_app.models import Client
-from apps.dish_app.models import Plate, Restaurant, Comment, Like
+from apps.dish_app.models import Plate, Restaurant, Comment
 
 class ClientAdmin(admin.ModelAdmin):
     pass
@@ -31,9 +31,9 @@ class RestaurantAdmin(admin.ModelAdmin):
     pass
 admin.site.register(Restaurant, RestaurantAdmin)
 
-class LikeAdmin(admin.ModelAdmin):
-    pass
-admin.site.register(Like, LikeAdmin)
+# class LikeAdmin(admin.ModelAdmin):
+#     pass
+# admin.site.register(Like, LikeAdmin)
 
 class CommentAdmin(admin.ModelAdmin):
     pass

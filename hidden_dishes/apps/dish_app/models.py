@@ -47,12 +47,20 @@ class PlateManager(models.Manager):
         else:
             return (False, errors)
 
+    def add_like(self, user_id, plate_id):
+        plate = self.get(id=plate_id)
+        user = Client.objects.get(id=user_id)
+        plate.likes.add(user)
+        plate.save()
+        return (True, ["Liked Comment"])
+
 class Plate(models.Model):
     name = models.CharField(max_length=100)
     review = models.TextField(max_length=255)
     image = models.ImageField()
     user = models.ForeignKey(Client)
     restaurant = models.ForeignKey(Restaurant)
+    likes = models.ManyToManyField(Client, related_name="plates")
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     objects = PlateManager()
@@ -82,9 +90,3 @@ class Comment(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     objects = CommentManager()
-
-class Like(models.Model):
-    user = models.ForeignKey(Client)
-    plate = models.ForeignKey(Plate)
-    liked = models.BooleanField()
-    created_at = models.DateTimeField(auto_now_add=True)

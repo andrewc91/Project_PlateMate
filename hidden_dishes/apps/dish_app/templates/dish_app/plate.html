@@ -33,7 +33,8 @@
       </ul>
 
       <div class="plate">
-        <h2>WOOO PIC</h2>
+        <h2>{{plate.likes.count}} Likes <a class="btn btn-warning" style="float:right; text-decoration: none" href="{% url 'dish:like' id=plate.id %}">Like</a></h2>
+        <h2>(PIC HERE)</h2>
         <p><span style="font-weight: bold">Posted By: </span>{{plate.user.name}}</p>
         <p><span style="font-weight: bold">Review: </span>"{{plate.review}}"</p>
       </div>

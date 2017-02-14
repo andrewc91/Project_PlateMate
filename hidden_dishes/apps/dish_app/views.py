@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect
 from django.core.urlresolvers import reverse
 from ..login_app.models import Client
-from .models import Plate, Restaurant, Comment, Like
+from .models import Plate, Restaurant, Comment
 from django.contrib import messages
+from django.db.models import Count
 
 # Create your views here.
 def index(request):
@@ -72,24 +73,15 @@ def show_plate(request, id):
         return redirect(reverse('login:index'))
 
     plate = Plate.objects.get(id=id)
-    comments = Comment.objects.filter(plate=plate)
+    comments = Comment.objects.filter(plate=Plate.objects.get(id=id)).order_by('-created_at')
     context = {
         'user': Client.objects.get(id=request.session['user_id']),
         'plate': plate,
         'comments': comments,
+        'likes': Plate.objects.annotate(total_like=Count('likes')),
 
     }
     return render(request, 'dish_app/plate.html', context)
-
-def restaurant(request, id):
-    if not 'user_id' in request.session:
-        return redirect(reverse('login:index'))
-
-    context = {
-        'user': Client.objects.get(id=request.session['user_id']),
-        'restaurant': Restaurant.objects.get(id=id),
-    }
-    return render(request, 'dish_app/restaurant.html', context)
 
 def top(request):
     if not 'user_id' in request.session:
@@ -119,3 +111,8 @@ def delete_comment(request, id):
     comment = Comment.objects.get(id=id)
     comment.delete()
     return redirect(reverse('dish:show_plate', kwargs={'id':comment.plate.id}))
+
+def like(request, id):
+    # user = Client.objects.get(id=request.session['user_id'])
+    Plate.objects.add_like(request.session['user_id'], id)
+    return redirect(reverse('dish:show_plate', kwargs={'id':id}))
