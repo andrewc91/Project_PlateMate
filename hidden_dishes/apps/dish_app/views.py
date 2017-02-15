@@ -11,12 +11,19 @@ def index(request):
         return redirect(reverse('login:index'))
 
     user = Client.objects.get(id=request.session['user_id'])
-    context = {
-        'user': user,
-        'plates': Plate.objects.all().order_by('-created_at'),
-        'random': Plate.objects.all().order_by('?')[0],
-    }
-    return render(request, 'dish_app/index.html', context)
+    if Plate.objects.exists():
+        context = {
+            'user': user,
+            'plates': Plate.objects.all().order_by('-created_at'),
+            'random': Plate.objects.all().order_by('?')[0],
+        }
+        return render(request, 'dish_app/index.html', context)
+
+    else:
+        context = {
+            'user': user,
+        }
+        return render(request, 'dish_app/index.html', context)
 
 def logout(request):
     if 'user_id' in request.session:
@@ -61,15 +68,19 @@ def add_dish(request):
         else:
             restaurant = Restaurant.objects.create(name=request.POST['restaurant'])
 
-            context = {
-                'user': Client.objects.get(id=request.session['user_id']),
-                'restaurant': restaurant,
-                'name': request.POST['plate'],
-                'review': request.POST['review'],
-                'image': request.FILES['picture'],
-            }
-            Plate.objects.create(**context)
-            return redirect(reverse('dish:index'))
+            if len(request.FILES) != 0:
+                context = {
+                    'user': Client.objects.get(id=request.session['user_id']),
+                    'restaurant': restaurant,
+                    'name': request.POST['plate'],
+                    'review': request.POST['review'],
+                    'image': request.FILES['picture'],
+                }
+                Plate.objects.create(**context)
+                return redirect(reverse('dish:index'))
+            else:
+                messages.error(request, "Please Upload Picture")
+                return redirect(reverse('dish:add'))
 
 def show_plate(request, id):
     if not 'user_id' in request.session:
@@ -108,7 +119,10 @@ def add_comment(request, id):
                 return redirect(reverse('dish:show_plate', kwargs={'id': id}))
 
 def delete(request, id):
-    Plate.objects.get(id=id).delete()
+    plate = Plate.objects.get(id=id)
+    plate.delete()
+    Restaurant.objects.get(id=plate.restaurant.id).delete()
+
     return redirect(reverse('dish:index'))
 
 def delete_comment(request, id):

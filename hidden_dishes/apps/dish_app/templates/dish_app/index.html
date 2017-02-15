@@ -30,8 +30,11 @@
 
       <div class="feature">
         <h2 style="margin-bottom: 15px; border-bottom: 1px solid white; text-align: center">Featured Dish</h2>
-        <h2 style="text-align: center">{{random.name}}</h2>
-        <h2 style="text-align: center; margin-bottom: 10px">(PIC HERE)</h2>
+        {% if random %}
+        <h2 style="text-align: center; margin-bottom: 15px"><a href="{% url 'dish:show_plate' id=random.id %}">{{random.name}}</a></h2>
+        {% else %}
+        <h2 style="text-align: center; margin-bottom: 15px">No Plates Yet</h2>
+        {% endif %}
         <h5>Posted By: {{random.user.name}}</h5>
         <h5>From: {{random.restaurant.name}}</h5>
         <h5>Review: {{random.review}}</h5>

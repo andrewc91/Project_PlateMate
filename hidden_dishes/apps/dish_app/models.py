@@ -39,7 +39,7 @@ class PlateManager(models.Manager):
         if len(input['review']) == 0:
             errors.append("Please enter in a review")
 
-        # if len(input['file']) == 0:
+        # if len(request.FILES['picture']) == 0:
         #     errors.append("Please upload a picture of the dish")
 
         if len(errors) == 0:
